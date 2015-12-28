@@ -1,0 +1,34 @@
+{
+  "name": "tig-service",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build-js && npm run quick-serve ",
+    "watch": "npm run watch-js & npm run quick-serve ",
+    "build-js": "browserify -t [ babelify --presets [ react ] ] index.js -o dist/bundle.js",
+    "watch-js": "watchify --extension=.jsx --extension=.js -t [ babelify --presets [ react ] ] index.js -o dist/bundle.js --debug --verbose",
+    "quick-serve": "cd dist && python -m SimpleHTTPServer"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/Users/grzegorz/Projects/Tig/tig-service/remotes/sigmapoint/tig-service.git"
+  },
+  "engines": {
+    "node": "4.2.3",
+    "npm": "2.14.7"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.1"
+  },
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  }
+}
