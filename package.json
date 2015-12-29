@@ -28,7 +28,11 @@
     "watchify": "^3.6.1"
   },
   "dependencies": {
+    "history": "^1.17.0",
+    "lodash": "^3.10.1",
+    "promise": "^7.1.1",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.3"
   }
 }
