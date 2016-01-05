@@ -28,6 +28,7 @@
     "watchify": "^3.6.1"
   },
   "dependencies": {
+    "axios": "^0.8.1",
     "express": "^4.13.3",
     "history": "^1.17.0",
     "lodash": "^3.10.1",

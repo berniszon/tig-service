@@ -11,8 +11,32 @@ router.get('/', function(req, res) {
   res.send('api');
 });
 
-router.get('/sub', function(req, res) {
-  res.send('sub');
+var data = [
+  {
+    "order": 1,
+    "name": "Lorem ipsum",
+    "description": "dolor sit amet",
+    "author": "sikor",
+    "date": "2015-12-30T00:00:00Z",
+  },
+  {
+    "order": 2,
+    "name": "consectetur adipiscing",
+    "description": "elit sed do",
+    "author": "sikor",
+    "date": "2015-12-30T00:00:00Z",
+  },
+  {
+    "order": 3,
+    "name": "incididunt ut labore",
+    "description": "et dolore magna aliqua",
+    "author": "sikor",
+    "date": "2015-12-30T00:00:00Z",
+  },
+]
+
+router.get('/tasks', function(req, res) {
+  res.send(data);
 });
 
 module.exports = router;

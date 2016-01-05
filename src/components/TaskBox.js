@@ -1,6 +1,7 @@
 var React = require('react');
 var Promise = require('promise');
 var _ = require('lodash');
+var axios = require('axios');
 
 
 // TODO proper model
@@ -94,17 +95,19 @@ var TaskBox = React.createClass({
   // helpers
   _fetch_data: function() {
     // mock up async call
-    var COMPUTATION_TIME = 1000;
+    // var COMPUTATION_TIME = 1000;
+
+    // var p = new Promise(function(resolve, reject) {
+    //   // simulate delay
+    //   setTimeout(function(){
+    //     resolve(data);
+    //   }, COMPUTATION_TIME);
+    // }).
     var _this = this; // I don't even know if this is necessary, got burned too many times
-    var p = new Promise(function(resolve, reject) {
-      // simulate delay
-      setTimeout(function(){
-        resolve(data);
-      }, COMPUTATION_TIME);
-    }).then(
+    axios.get('/api/tasks/').then(
       function(result) {
         _this.setState({
-          data: _this._filter_data(result, _this.state.filterTerm)
+          data: _this._filter_data(result.data, _this.state.filterTerm)
         });
       },
       function(error) {

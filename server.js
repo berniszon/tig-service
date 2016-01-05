@@ -5,11 +5,10 @@ var api = require('./src/api');
 var DEFAULT_PORT = 8080;
 var app = express();
 
-app.use(expres.static('public'));
+app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.type('text/plain'); // set content-type
-  res.send('Hello express.js!'); // send text response
+  res.sendfile(__dirname + '/index.html');
 });
 
 app.use('/api', api);
