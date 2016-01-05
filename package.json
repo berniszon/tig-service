@@ -2,14 +2,14 @@
   "name": "tig-service",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build-js && npm run quick-serve ",
     "watch": "npm run watch-js & npm run quick-serve ",
-    "build-js": "browserify -t [ babelify --presets [ react ] ] index.js -o dist/bundle.js",
-    "watch-js": "watchify --extension=.jsx --extension=.js -t [ babelify --presets [ react ] ] index.js -o dist/bundle.js --debug --verbose",
-    "quick-serve": "cd dist && python -m SimpleHTTPServer"
+    "build-js": "browserify -t [ babelify --presets [ react ] ] src/index.js -o public/js/bundle.js",
+    "watch-js": "watchify --extension=.jsx --extension=.js -t [ babelify --presets [ react ] ] src/index.js -o public/js/bundle.js --debug --verbose",
+    "quick-serve": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "watchify": "^3.6.1"
   },
   "dependencies": {
+    "express": "^4.13.3",
     "history": "^1.17.0",
     "lodash": "^3.10.1",
     "promise": "^7.1.1",

@@ -1,3 +1,4 @@
 # Don't spill your environment - exclude IDE and OS files in your private .gitignore
+node_modules/
 remotes/
-dist/bundle.js
+public/js/bundle.js
