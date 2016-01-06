@@ -36,19 +36,10 @@ var data = [
 ]
 
 router.get('/tasks', function(req, res) {
-  s = function(callback){
-    execute("git config --global user.name", function(name) {
-        execute("git config --global user.email", function(email) {
-            callback({
-              name: name.replace("\n", ""),
-              email: email.replace("\n", "")
-            });
-        });
-    });
-  };
-  s(console.log)
-
-  res.send(data);
+  // res.send(data);
+  execute("tig tasks --json", function(data) {
+      res.send(data);
+  });
 });
 
 module.exports = router;
