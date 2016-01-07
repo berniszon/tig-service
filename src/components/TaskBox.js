@@ -2,32 +2,8 @@ var React = require('react');
 var Promise = require('promise');
 var _ = require('lodash');
 var axios = require('axios');
+var urljoin = require('url-join');
 
-
-// TODO proper model
-var data = [
-  {
-    "order": 1,
-    "name": "Lorem ipsum",
-    "description": "dolor sit amet",
-    "author": "sikor",
-    "date": "2015-12-30T00:00:00Z",
-  },
-  {
-    "order": 2,
-    "name": "consectetur adipiscing",
-    "description": "elit sed do",
-    "author": "sikor",
-    "date": "2015-12-30T00:00:00Z",
-  },
-  {
-    "order": 3,
-    "name": "incididunt ut labore",
-    "description": "et dolore magna aliqua",
-    "author": "sikor",
-    "date": "2015-12-30T00:00:00Z",
-  },
-]
 
 var Task = React.createClass({
   render: function() {
@@ -94,17 +70,8 @@ var TaskBox = React.createClass({
 
   // helpers
   _fetch_data: function() {
-    // mock up async call
-    // var COMPUTATION_TIME = 1000;
-
-    // var p = new Promise(function(resolve, reject) {
-    //   // simulate delay
-    //   setTimeout(function(){
-    //     resolve(data);
-    //   }, COMPUTATION_TIME);
-    // }).
     var _this = this; // I don't even know if this is necessary, got burned too many times
-    axios.get('/api/tasks/').then(
+    axios.get(urljoin('/api', this.props.params.team, this.props.params.project, 'tasks')).then(
       function(result) {
         _this.setState({
           data: _this._filter_data(result.data, _this.state.filterTerm)

@@ -7,10 +7,13 @@ var app = express();
 
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/index.html');
+app.use('/api', api);
+app.get('*', function(req, res) {
+  var path = __dirname + '/public/index.html';
+  console.log(path);
+  res.sendFile(path);
 });
 
-app.use('/api', api);
+
 
 app.listen(process.env.PORT || DEFAULT_PORT);
