@@ -15,12 +15,8 @@ var TaskBox = require('./components/TaskBox');
 // ReactDOM.render(
 //   <Router history={browserHistory}>
 //     <Route path='/' component={App}>
-//       <Route path=':team/' component={Team}>
-//         <Route path=':project/' component={Project}>
-//           <Route path='tasks' component={TaskBox}>
+//       <Route path=':team/:project/tasks' component={TaskBox}>
 
-//           </Route>
-//         </Route>
 //       </Route>
 //     </Route>
 //   </Router>,
@@ -30,10 +26,9 @@ var TaskBox = require('./components/TaskBox');
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}>
-      <Route path=':team/:project/tasks' component={TaskBox}>
-
-      </Route>
     </Route>
+    <Route path='/:team/:project/tasks' component={TaskBox}>
+      </Route>
   </Router>,
   document.getElementById('app')
 );
